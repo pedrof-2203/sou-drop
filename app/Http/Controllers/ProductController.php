@@ -88,7 +88,7 @@ class ProductController extends Controller
     {
         $this->authorize('delete', $product);
         $product->delete();
-        
+
         return redirect()->route('products.index')
             ->with('success', 'Produto excluído com sucesso!');
     }
