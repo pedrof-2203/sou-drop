@@ -13,22 +13,26 @@
         <div class="row">
             @foreach ($products as $product)
                 <div class="col-md4 mb-4">
-                    <div class="card">
-                        <div class="card-body">
+                    <div class="card h-100 d-flex flex-column ">
+                        <div class="card-body flex-grow-1 p-4">
                             <h5 class="card-title">{{ $product->name }}</h5>
                             <p class="card-text">
-                                <strong>Cor:</strong>{{ $product->color }}</br>
+                                <strong>Cor:</strong> {{ $product->color }}</br>
                                 <strong>Preço:</strong> R$ {{ number_format($product->price, 2, ',', '.') }}
-                            </p>
                             <p class="card-text">{{ Str::limit($product->description, 100) }}</p>
-                            <div class="btn-group" role="group">
-                                <a href="{{ route('products.show', $product) }}" class="btn btn-info btn-sm">Ver</a>
-                                <a href="{{ route('products.edit', $product) }}" class="btn btn-info btn-sm">Editar</a>
-                                <form action="{{ route('products.destroy', $product) }}" method="POST" class="d-inline">
+                            </p>
+                        </div>
+                        <div class="card-footer bg-white border-top-0 d-flex justify-content-end mb-2">
+                            <div class="d-flex gap-2 mt-3">
+                                <a href="{{ route('products.show', $product) }}" class="btn btn-primary w-20">Ver</a>
+                                <a href="{{ route('products.edit', $product) }}"
+                                    class="btn btn-secondary w-20">Editar</a>
+                                <form action="{{ route('products.destroy', $product) }}" method="POST"
+                                    class="d-inline">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-sm"
-                                        onclick="{{ return confirm('Tem certeza?') }}">Excluir</button>
+                                    <button type="submit" class="btn btn-danger w-20"
+                                        onclick="return confirm('Tem certeza?')">Excluir</button>
                                 </form>
                             </div>
                         </div>

@@ -11,7 +11,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
         <div class="container">
-            <a class="navbar-brand" href="{{ route('products.index') }}">SouDrop</a>
+            <strong><a class="navbar-brand" href="{{ route('products.index') }}">SouDrop</a></strong>
             <div class="navbar-nav ms-auto">
                 <a class="nav-link" href="{{ route('products.index') }}">Produtos</a>
                 <a class="nav-link" href="{{ route('chatbot.index') }}">Assistente</a>
