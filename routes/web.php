@@ -10,8 +10,8 @@ Route::get('/', function () {
 })->name('home');
 
 // logged-in
-Route::middleware('auth')->group(function(){
-    Route::get('/dashboard', function() {
+Route::middleware('auth')->group(function () {
+    Route::get('/dashboard', function () {
         return redirect()->route('products.index');
     })->name('dashboard');
 
@@ -23,6 +23,4 @@ Route::middleware('auth')->group(function(){
     Route::post('/chatbot/ask', [ChatbotController::class, 'ask'])->name('chatbot.ask');
 });
 
-require __DIR__.'/auth.php';
-
-
+require __DIR__ . '/auth.php';
