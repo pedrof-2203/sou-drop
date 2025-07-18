@@ -25,8 +25,7 @@
                         <div class="card-footer bg-white border-top-0 d-flex justify-content-end mb-2">
                             <div class="d-flex gap-2 mt-3">
                                 <a href="{{ route('products.show', $product) }}" class="btn btn-primary w-20">Ver</a>
-                                <a href="{{ route('products.edit', $product) }}"
-                                    class="btn btn-secondary w-20">Editar</a>
+                                <a href="{{ route('products.edit', $product) }}" class="btn btn-secondary w-20">Editar</a>
                                 <form action="{{ route('products.destroy', $product) }}" method="POST"
                                     class="d-inline">
                                     @csrf

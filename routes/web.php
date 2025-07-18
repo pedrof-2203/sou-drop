@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
+//use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ChatbotController;
 use Illuminate\Support\Facades\Route;
@@ -20,7 +20,7 @@ Route::middleware('auth')->group(function(){
 
     // chatbot routes
     Route::get('/chatbot', [ChatbotController::class, 'index'])->name('chatbot.index');
-    Route::get('/chatbot/ask', [ChatbotController::class, 'ask'])->name('chatbot.ask');
+    Route::post('/chatbot/ask', [ChatbotController::class, 'ask'])->name('chatbot.ask');
 });
 
 require __DIR__.'/auth.php';

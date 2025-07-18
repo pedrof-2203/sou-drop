@@ -5,15 +5,19 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 
 class ProductController extends Controller
 {
+    use AuthorizesRequests;
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $products = Auth::user()->products()->latest()->get();
+        $user = Auth::user();
+        $products = Product::where('user_id', $user->id)->latest()->get();
         return view('products.index', compact('products'));
     }
 
@@ -37,7 +41,13 @@ class ProductController extends Controller
             'price' => 'required|numeric|min:0',
         ]);
 
-        Auth::user()->products()->create($request->all());
+        Product::create([
+            'name' => $request->name,
+            'color' => $request->color,
+            'description' => $request->description,
+            'price' => $request->price,
+            'user_id' => Auth::id(),
+        ]);
 
         return redirect()->route('products.index')
             ->with('success', 'Produto criado com sucesso!');
