@@ -4,7 +4,7 @@
 - **View:** Interface de usuário através de *.blade.php*
 - **Controller:** *ProductController* e *ChatbotController* gerenciam lógica de negócios
 ## Eloquent ORM
-- **Relacionamentos:** 
+- **Relacionamentos:** *User hasMany Products*, *Product belongsTo User*
 - **Mass assignment** com *$fillable* 
 - **Casting** de tipos com *$casts*
 ## Rotas
