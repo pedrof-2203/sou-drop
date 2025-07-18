@@ -14,7 +14,7 @@
 ## Blade Templates
 - Layout principal com slots
 - Components reutilizáveis
-- Diretivas como *@csrf*, *@error*, *@foreach
+- Diretivas como *@csrf*, *@error*, *@foreach*
 ## Policies
 - Autorização baseada em políticas
 - Controle de acesso
