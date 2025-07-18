@@ -24,8 +24,13 @@
 git clone https://github.com/pedrof-2203/sou-drop.git
 cd sou-drop
 composer install
+npm install
 cp .env.example .env
 php artisan key:generate
+touch database/database.sqlite
+php artisan migrate
+composer require guzzlehttp/guzzle
+npm run dev
 php artisan serve
 ```
 # Preparação do Chatbot
