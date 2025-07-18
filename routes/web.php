@@ -19,9 +19,11 @@ Route::middleware('auth')->group(function(){
     Route::resource('products', ProductController::class);
 
     // chatbot routes
-    //Route::get('/chatbot', [ChatbotController::class, 'index'])->name('chatbot.index');
-    //Route::get('/chatbot/ask', [ChatbotController::class, 'ask'])->name('chatbot.ask');
+    Route::get('/chatbot', [ChatbotController::class, 'index'])->name('chatbot.index');
+    Route::get('/chatbot/ask', [ChatbotController::class, 'ask'])->name('chatbot.ask');
 });
+
+require __DIR__.'/auth.php';
 /*
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -33,4 +35,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });*/
 
-require __DIR__.'/auth.php';
+
